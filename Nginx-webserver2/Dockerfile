@@ -1,3 +1,3 @@
-FROM nginx:latest
+FROM nginx:latets
 
 COPY ./index.html /usr/share/nginx/html/index.html
