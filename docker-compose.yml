@@ -16,8 +16,7 @@ webserver1:
   images: nginx:latest
   build: /Nginx-webserver1 .
     ports:
-      - target: 80
-        published: 8081
+    - "8081:80"
   networks:
     - backend-lb
 
@@ -26,11 +25,10 @@ webserver1:
   images: nginx:latest
   build: /Nginx-webserver2 .
     ports:
-      - target: 80
-        published: 8082
+    - "8082:80"
   networks:
     - backend-lb      
-      
+
 networks:
   backend-lb:
     driver: overley
