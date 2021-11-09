@@ -1,0 +1,37 @@
+version: "3.7"
+service:
+
+loadbalancer:
+  name: loadbalancer
+  build: /Nginx-loadbalancer .
+  images: nginx:latest
+  ports:
+    - target: 80
+      published: 9090
+  networks:
+    - backend-lb
+
+webserver1:
+  name: wbserver1
+  images: nginx:latest
+  build: /Nginx-webserver1 .
+    ports:
+      - target: 80
+        published: 8081
+  networks:
+    - backend-lb
+
+webserver1:
+  name: wbserver2
+  images: nginx:latest
+  build: /Nginx-webserver2 .
+    ports:
+      - target: 80
+        published: 8082
+  networks:
+    - backend-lb      
+      
+networks:
+  backend-lb:
+    driver: overley
+    subnet: 192.168.124.0/24
