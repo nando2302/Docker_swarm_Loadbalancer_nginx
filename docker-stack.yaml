@@ -1,8 +1,0 @@
-version: "3.9"
-  services:
-  nginx:
-    container_name: hellow
-    images: nginx:latest
-    ports:
-      - "8000:80"
-      
