@@ -1,11 +1,7 @@
 version: "3.9"
 services:
   loadbalancer:
-    version: "3.9"
-  services:
-  nginx:
-    container_name: hellow
+    container_name: nginx-demo
     images: nginx:latest
     ports:
-      - "8000:80"
-      
+    - "8080:80"
