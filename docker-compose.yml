@@ -1,20 +1,8 @@
-version: "3.8"
-
-services:
-  webserver1:
-    build: ./Nginx-webserver1
-    ports:
-      - "8081:8081"
-
-  webserver2:
-    build: ./Nginx-webserver2
-    ports:
-      - "8082:8082"
-
-  nginx-loadbalancer:
-    build: ./Nginx-loadbalancer
-    ports:
-      - "80:80"
-    depends_on:
-      - webserver1
-      - webserver2
+version: "3.9"
+networks:
+  front:
+    driver: brigde
+  back:
+    driver: overlay
+    - subnet: 192.168.120.0/24
+    gateway: 192.168.120.1
